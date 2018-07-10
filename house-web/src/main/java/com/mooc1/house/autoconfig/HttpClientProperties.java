@@ -3,7 +3,7 @@ package com.mooc1.house.autoconfig;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix="spring.httpclient")
-public class HttpClientProperties {
+public class HttpClientProperties { 
 	
 	private Integer connectTimeOut = 1000;
 	

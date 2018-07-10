@@ -10,6 +10,6 @@ import org.springframework.context.annotation.Import;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Import(HttpClientAutoConfiguration.class)
-public @interface EnableHttpClient {
+public @interface EnableHttpClient { 
 
 }
