@@ -47,7 +47,8 @@
 	  <artifactId>mybatis-spring-boot-starter</artifactId>
 	  <version>1.2.0</version>
     </dependency>
-    
+
+    <!--邮件起步依赖-->
     <dependency>
          <groupId>org.springframework.boot</groupId>
          <artifactId>spring-boot-starter-mail</artifactId>

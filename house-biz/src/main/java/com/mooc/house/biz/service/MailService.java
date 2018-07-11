@@ -37,7 +37,7 @@ public class MailService {
   @Autowired
   private UserMapper userMapper;
 
-
+  //缓存
   private final Cache<String, String> registerCache =
       CacheBuilder.newBuilder().maximumSize(100).expireAfterAccess(15, TimeUnit.MINUTES)
           .removalListener(new RemovalListener<String, String>() {
@@ -75,6 +75,7 @@ public class MailService {
    */
   @Async
   public void registerNotify(String email) {
+    //随机字符
     String randomKey = RandomStringUtils.randomAlphabetic(10);
     registerCache.put(randomKey, email);
     String url = "http://" + domainName + "/accounts/verify?key=" + randomKey;

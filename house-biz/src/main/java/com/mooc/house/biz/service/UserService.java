@@ -25,6 +25,7 @@ public class UserService {
   @Autowired
   private UserMapper userMapper;
 
+  //使用nignx反代理托管服务
   @Value("${file.prefix}")
   private String imgPrefix;
 
@@ -48,8 +49,9 @@ public class UserService {
     }
     BeanHelper.setDefaultProp(account, User.class);
     BeanHelper.onInsert(account);
-    account.setEnable(0);
+    account.setEnable(0);//非激活状态
     userMapper.insert(account);
+    //注册异步通知
     mailService.registerNotify(account.getEmail());
     return true;
   }
