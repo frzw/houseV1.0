@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import com.mooc.house.common.model.User;
 
 @Mapper
-public interface UserMapper {
+public interface userMapper {
 
 	public List<User>  selectUsers();
 	

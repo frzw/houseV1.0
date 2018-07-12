@@ -64,6 +64,7 @@ public class ResultMsg {
 	public String asUrlParams(){
 		Map<String, String> map = asMap();
 		Map<String, String> newMap = Maps.newHashMap();
+		//java8中新知识
 		map.forEach((k,v) -> {if(v!=null)
 			try {
 				newMap.put(k, URLEncoder.encode(v,"utf-8"));

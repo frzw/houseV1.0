@@ -22,7 +22,7 @@
                             <figure>西街镇, 新都区</figure>
                         </div>
                         <hr>
-                        <a href="property-detail.html" class="link-arrow">Read More</a>
+                        <a href="property-detail.html" class="link-arrow">阅读更多...</a>
                     </div>
                 </div>
                 <img alt="" src="/static/assets/img/slide-01.jpg">
@@ -36,7 +36,7 @@
                             <figure>张庄, IL 60610</figure>
                         </div>
                         <hr>
-                        <a href="property-detail.html" class="link-arrow">Read More</a>
+                        <a href="property-detail.html" class="link-arrow">阅读更多...</a>
                     </div>
                 </div>
                 <img alt="" src="/static/assets/img/slide-02.jpg">
@@ -50,7 +50,7 @@
                             <figure>王庄镇, 和平区</figure>
                         </div>
                         <hr>
-                        <a href="property-detail.html" class="link-arrow">Read More</a>
+                        <a href="property-detail.html" class="link-arrow">阅读更多...</a>
                     </div>
                 </div>
                 <img alt="" src="/static/assets/img/slide-03.jpg">
@@ -198,7 +198,7 @@
 
 <script>
     $(window).load(function(){
-        initializeOwl(false);
+        initializeOwl(false);//初始化幻灯片
     });
     $(document).ready(function() {
           var errorMsg   = "${errorMsg!""}";

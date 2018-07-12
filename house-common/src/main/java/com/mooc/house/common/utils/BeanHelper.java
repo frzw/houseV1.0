@@ -7,6 +7,9 @@ import java.util.Date;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.PropertyUtils;
 
+/**
+ * javaBean的默认设置
+ */
 public class BeanHelper {
  
   private static final String updateTimeKey  = "updateTime";
