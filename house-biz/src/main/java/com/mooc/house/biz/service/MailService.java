@@ -17,7 +17,6 @@ import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.RemovalListener;
 import com.google.common.cache.RemovalNotification;
-import com.mooc.house.biz.mapper.UserMapper;
 import com.mooc.house.common.model.User;
 
 @Service
@@ -35,15 +34,15 @@ public class MailService {
 
 
   @Autowired
-  private UserMapper userMapper;
+  private com.mooc.house.biz.mapper.userMapper userMapper;
 
-  //缓存
+  //guava缓存技术，用来处理key:email的关系
   private final Cache<String, String> registerCache =
       CacheBuilder.newBuilder().maximumSize(100).expireAfterAccess(15, TimeUnit.MINUTES)
           .removalListener(new RemovalListener<String, String>() {
 
             @Override
-            public void onRemoval(RemovalNotification<String, String> notification) {
+            public void onRemoval(RemovalNotification<String, String> notification) {//通知
               String email = notification.getValue();
               User user = new User();
               user.setEmail(email);
@@ -110,7 +109,7 @@ public class MailService {
     }
     User updateUser = new User();
     updateUser.setEmail(email);
-    updateUser.setEnable(1);
+    updateUser.setEnable(1);//已激活
     userMapper.update(updateUser);
     registerCache.invalidate(key);
     return true;

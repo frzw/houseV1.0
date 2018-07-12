@@ -50,6 +50,11 @@ public class UserController {
     }
   }
 
+  /**
+   * 邮箱激活方法
+   * @param key
+   * @return
+   */
   @RequestMapping("accounts/verify")
   public String verify(String key) {
     boolean result = userService.enable(key);

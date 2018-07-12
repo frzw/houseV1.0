@@ -1,7 +1,6 @@
 package com.mooc.house.biz.service;
 
 import com.google.common.collect.Lists;
-import com.mooc.house.biz.mapper.UserMapper;
 import com.mooc.house.common.model.User;
 import com.mooc.house.common.utils.BeanHelper;
 import com.mooc.house.common.utils.HashUtils;
@@ -23,9 +22,9 @@ public class UserService {
   private MailService mailService;
 
   @Autowired
-  private UserMapper userMapper;
+  private com.mooc.house.biz.mapper.userMapper userMapper;
 
-  //使用nignx反代理托管服务
+  //使用nginx反代理托管服务，托管静态文件资源
   @Value("${file.prefix}")
   private String imgPrefix;
 
@@ -71,7 +70,7 @@ public class UserService {
     User user = new User();
     user.setEmail(username);
     user.setPasswd(HashUtils.encryPassword(password));
-    user.setEnable(1);
+    user.setEnable(1);//启用
     List<User> list = getUserByQuery(user);
     if (!list.isEmpty()) {
       return list.get(0);

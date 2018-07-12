@@ -1,3 +1,4 @@
+<#--使用宏管理-->
 <#macro header>
 <html lang="en-US">
 <head>
@@ -165,7 +166,7 @@
                 <div class="user-area">
                     <div class="actions">
                     <#if (loginUser.name)??>
-                        <a href="/accounts/profile" class="promoted">Hello,${(loginUser.name)!}</a>
+                        <a href="/accounts/profile" class="promoted">你好,${(loginUser.name)!}</a>
                           <#if (loginUser.email)?? && (loginUser.email) == "spring_boot@163.com">
                           <a href="/agency/create" class="promoted">创建经纪机构</a>
                           </#if>
