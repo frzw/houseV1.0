@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84ddfb40-e399-4362-ae7a-eb211478a2aa" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/house-biz/house-biz.iml" beforeDir="false" afterPath="$PROJECT_DIR$/house-biz/house-biz.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/house-biz/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/house-biz/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/house-biz/src/main/java/com/mooc/house/biz/service/MailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/house-biz/src/main/java/com/mooc/house/biz/service/MailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/house-biz/src/main/java/com/mooc/house/biz/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/house-biz/src/main/java/com/mooc/house/biz/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/house-common/house-common.iml" beforeDir="false" afterPath="$PROJECT_DIR$/house-common/house-common.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/house-web/house-web.iml" beforeDir="false" afterPath="$PROJECT_DIR$/house-web/house-web.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/house-web/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/house-web/src/main/resources/application.properties" afterDir="false" />
-    </list>
+    <list default="true" id="84ddfb40-e399-4362-ae7a-eb211478a2aa" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/house-common/target/" />
     <ignored path="$PROJECT_DIR$/house-biz/target/" />
     <ignored path="$PROJECT_DIR$/house-web/target/" />
@@ -37,8 +27,8 @@
       <file leaf-file-name="application.properties" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/house-web/src/main/resources/application.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+            <state relative-caret-position="187">
+              <caret line="38" column="55" selection-start-line="38" selection-start-column="55" selection-end-line="38" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -321,12 +311,12 @@
       <workItem from="1531117145382" duration="2232000" />
       <workItem from="1531133891237" duration="356000" />
       <workItem from="1531134287452" duration="4938000" />
-      <workItem from="1531313930995" duration="4850000" />
+      <workItem from="1531313930995" duration="5062000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19795000" />
+    <option name="totallyTimeSpent" value="20007000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -339,7 +329,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5042644" side_tool="true" weight="0.12440945" />
@@ -755,8 +744,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/house-web/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+        <state relative-caret-position="187">
+          <caret line="38" column="55" selection-start-line="38" selection-start-column="55" selection-end-line="38" selection-end-column="55" />
         </state>
       </provider>
     </entry>
