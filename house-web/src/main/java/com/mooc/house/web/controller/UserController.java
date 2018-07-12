@@ -74,7 +74,7 @@ public class UserController {
   public String signin(HttpServletRequest req) {
     String username = req.getParameter("username");
     String password = req.getParameter("password");
-    String target = req.getParameter("target");
+    String target = req.getParameter("target");//跳转页
     if (username == null || password == null) {
       req.setAttribute("target", target);
       return "/user/accounts/signin";
