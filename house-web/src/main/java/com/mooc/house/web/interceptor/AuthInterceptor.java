@@ -14,6 +14,9 @@ import com.google.common.base.Joiner;
 import com.mooc.house.common.constants.CommonConstants;
 import com.mooc.house.common.model.User;
 
+/**
+ * 授权管理，判断用户是否已经登录（拦截器）
+ */
 @Component
 public class AuthInterceptor implements HandlerInterceptor{
 
@@ -31,7 +34,7 @@ public class AuthInterceptor implements HandlerInterceptor{
 	    if (reqUri.startsWith("/static") || reqUri.startsWith("/error") ) {
 			return true;
 		}
-	    HttpSession session = request.getSession(true);
+	    HttpSession session = request.getSession(true);//session没有时，自动创建
 	    User user =  (User)session.getAttribute(CommonConstants.USER_ATTRIBUTE);
 	    if (user != null) {
 			UserContext.setUser(user);

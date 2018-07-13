@@ -2,6 +2,9 @@ package com.mooc.house.web.interceptor;
 
 import com.mooc.house.common.model.User;
 
+/**
+ * 将用户放在ThreadLocal线程池中
+ */
 public class UserContext {
 	private static final ThreadLocal<User> USER_HODLER = new ThreadLocal<>();
     

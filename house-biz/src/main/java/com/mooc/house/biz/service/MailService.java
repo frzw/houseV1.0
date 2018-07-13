@@ -1,23 +1,23 @@
 package com.mooc.house.biz.service;
 
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
-import org.apache.commons.lang3.RandomStringUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.scheduling.annotation.Async;
-import org.springframework.stereotype.Service;
-
 import com.google.common.base.Objects;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.RemovalListener;
 import com.google.common.cache.RemovalNotification;
 import com.mooc.house.common.model.User;
+import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.stereotype.Service;
+
+import javax.mail.internet.MimeMessage;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @Service
 public class MailService {
@@ -57,14 +57,40 @@ public class MailService {
   
   private final Cache<String, String> resetCache =  CacheBuilder.newBuilder().maximumSize(100).expireAfterAccess(15, TimeUnit.MINUTES).build();
 
+  private static String getSendContentStr(String url){
+    return "<!DOCTYPE html>"
+            + "<html>"
+            + "<head>"
+            + "<title>激活邮件</title>"
+            + "<meta name=\"content-type\" content=\"text/html; charset=UTF-8\">"
+            + "</head>"
+            + "<body>"
+            + "<p style=\"color:#0FF\">这是一封账户激活邮件~</p>"
+            + "<a href=\""+url+"\">点击激活，激活成功跳转到激活页面，"+url+"~</a>"
+            + "</body>"
+            + "</html>";
+  }
+
   @Async
   public void sendMail(String title, String url, String email) {
-    SimpleMailMessage message = new SimpleMailMessage();
-    message.setFrom(from);
-    message.setSubject(title);
-    message.setTo(email);
-    message.setText(url);
-    mailSender.send(message);
+    //SimpleMailMessage message = new SimpleMailMessage();
+    //message.setFrom(from);
+    //message.setSubject(title);
+    //message.setTo(email);
+    //message.setText(url);
+    //mailSender.send(message);
+    //mailSender.send(message);
+    try {
+      MimeMessage mimeMessage = this.mailSender.createMimeMessage();
+      MimeMessageHelper message = new MimeMessageHelper(mimeMessage);
+      message.setFrom(from);//设置发信人，发信人需要和spring.mail.username配置的一样否则报错
+      message.setTo(email);                //设置收信人
+      message.setSubject(title);    //设置主题
+      message.setText(getSendContentStr(url), true);    //第二个参数true表示使用HTML语言来编写邮件
+      mailSender.send(mimeMessage);
+    } catch (Exception ex) {
+      ex.printStackTrace();
+    }
   }
 
   /**

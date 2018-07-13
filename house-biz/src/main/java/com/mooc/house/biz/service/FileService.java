@@ -11,6 +11,8 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Service
@@ -64,7 +66,10 @@ public class FileService {
 	 * @throws IOException
 	 */
 	private File saveToLocal(MultipartFile file, String filePath2) throws IOException {
-	 File newFile = new File(filePath + "/" + Instant.now().getEpochSecond() +"/"+file.getOriginalFilename());
+		DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("yyyyMMddHHmm");
+		LocalDateTime ldt = LocalDateTime.now();
+		File newFile = new File(filePath + "/" + dtf2.format(ldt) +"/"+file.getOriginalFilename());
+		//File newFile = new File(filePath + "/" + Instant.now().getEpochSecond() +"/"+file.getOriginalFilename());
 	 if (!newFile.exists()) {
 		 newFile.getParentFile().mkdirs();
 		 newFile.createNewFile();

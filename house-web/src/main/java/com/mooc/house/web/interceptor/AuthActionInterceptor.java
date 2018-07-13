@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.mooc.house.common.model.User;
 
 /**
- * 鉴权-判断用户是否登录
+ * 鉴权- 在AuthInterceptor之后执行
  */
 @Component
 public class AuthActionInterceptor implements HandlerInterceptor {

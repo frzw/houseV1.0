@@ -2,6 +2,18 @@
 
 <html lang="en-US">
 <@common.header/>
+<style>
+    .property .overlay {
+        -moz-transition: 0.4s;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+        bottom: -50px;
+        left: 0;
+        position: relative;
+        width: 100%;
+        z-index: 1;
+    }
+</style>
 
 <body class="page-homepage navigation-fixed-top page-slider page-slider-search-box" id="page-top" data-spy="scroll" data-target=".navigation" data-offset="90">
 <!-- Wrapper -->
