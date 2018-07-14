@@ -25,6 +25,9 @@ import com.mooc.house.common.page.PageParams;
 import com.mooc.house.common.result.ResultMsg;
 import com.mooc.house.web.interceptor.UserContext;
 
+/**
+ * 房产控制器
+ */
 @Controller
 public class HouseController {
 	

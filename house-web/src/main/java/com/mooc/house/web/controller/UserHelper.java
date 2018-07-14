@@ -27,7 +27,14 @@ public class UserHelper {
 		}
 		return ResultMsg.successMsg("");
 	}
-	
+
+	/**
+	 * 重置密码确认
+	 * @param key
+	 * @param password
+	 * @param confirmPassword
+	 * @return
+	 */
 	public static ResultMsg validateResetPassword(String key, String password, String confirmPassword) {
 	    if (StringUtils.isBlank(key) || StringUtils.isBlank(password) || StringUtils.isBlank(confirmPassword)) {
 	      return ResultMsg.errorMsg("参数有误");
@@ -35,7 +42,7 @@ public class UserHelper {
 	    if (!Objects.equal(password, confirmPassword)) {
 	      return ResultMsg.errorMsg("密码必须与确认密码一致");
 	    }
-	    return ResultMsg.successMsg("");
+	    return ResultMsg.successMsg("重置密码成功");
 	  }
 
 }

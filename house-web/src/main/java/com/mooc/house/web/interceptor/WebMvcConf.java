@@ -6,6 +6,9 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+/**
+ * 此类目的：确保AuthInterceptor先于AuthActionInterceptor执行
+ */
 @Configuration
 public class WebMvcConf extends WebMvcConfigurerAdapter {
 
@@ -17,7 +20,8 @@ public class WebMvcConf extends WebMvcConfigurerAdapter {
 	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry){
-		 registry.addInterceptor(authInterceptor).excludePathPatterns("/static").addPathPatterns("/**");
+		//设置拦截器
+		registry.addInterceptor(authInterceptor).excludePathPatterns("/static").addPathPatterns("/**");
 		    registry
 		        .addInterceptor(authActionInterceptor).addPathPatterns("/house/toAdd")
 		        .addPathPatterns("/accounts/profile").addPathPatterns("/accounts/profileSubmit")

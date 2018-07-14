@@ -65,8 +65,8 @@ public class MailService {
             + "<meta name=\"content-type\" content=\"text/html; charset=UTF-8\">"
             + "</head>"
             + "<body>"
-            + "<p style=\"color:#0FF\">这是一封账户激活邮件~</p>"
-            + "<a href=\""+url+"\">点击激活，激活成功跳转到激活页面，"+url+"~</a>"
+            + "<p style=\"color:#0FF\">这是一封确认邮件~</p>"
+            + "<a href=\""+url+"\">点击确认，确认成功跳转到指定页面，"+url+"~</a>"
             + "</body>"
             + "</html>";
   }
@@ -123,7 +123,11 @@ public class MailService {
   public String getResetEmail(String key){
     return resetCache.getIfPresent(key);
   }
-  
+
+  /**
+   * 使key失效
+   * @param key
+   */
   public void invalidateRestKey(String key){
     resetCache.invalidate(key);
   }

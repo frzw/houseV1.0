@@ -79,6 +79,11 @@ public class UserService {
   }
 
 
+  /**
+   * 查询用户信息
+   * @param user
+   * @return
+   */
   public List<User> getUserByQuery(User user) {
     List<User> list = userMapper.selectUsersByQuery(user);
     list.forEach(u -> {
@@ -87,6 +92,11 @@ public class UserService {
     return list;
   }
 
+  /**
+   * 更新用户信息
+   * @param updateUser
+   * @param email
+   */
   public void updateUser(User updateUser, String email) {
     updateUser.setEmail(email);
     BeanHelper.onUpdate(updateUser);
@@ -104,6 +114,10 @@ public class UserService {
     return null;
   }
 
+  /**
+   * 重置密码通知邮件
+   * @param username
+   */
   public void resetNotify(String username) {
     mailService.resetNotify(username);
   }

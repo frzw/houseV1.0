@@ -53,7 +53,7 @@
                             <input type="text" class="form-control" id="form-create-account-full-name" name="name" required>
                         </div><!-- /.form-group -->
                         <div class="form-group">
-                            <label for="form-create-account-email">Email:</label>
+                            <label for="form-create-account-email">邮箱:</label>
                             <input type="text" class="form-control" id="form-create-account-email"  name="email" required>
                         </div><!-- /.form-group -->
                         <div class="form-group">

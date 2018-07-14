@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.mooc.house.common.model.User;
 
 /**
- * 鉴权- 在AuthInterceptor之后执行
+ * 鉴权管理- 在AuthInterceptor之后执行
  */
 @Component
 public class AuthActionInterceptor implements HandlerInterceptor {
@@ -28,12 +28,15 @@ public class AuthActionInterceptor implements HandlerInterceptor {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
+		//从线程池中取用户信息
 		User user = UserContext.getUser();
+		//用户未登陆，跳转登陆页面
 		if (user == null) {
 			String msg = URLEncoder.encode("请先登录","utf-8");
 			String target = URLEncoder.encode(request.getRequestURL().toString(),"utf-8");
+			//请求方式处理
 			if ("GET".equalsIgnoreCase(request.getMethod())) {
-				response.sendRedirect("/accounts/signin?errorMsg=" + msg + "&target="+target);
+				response.sendRedirect("/accounts/signin?errorMsg=" + msg + "&target="+target);//跳转登陆页
 				return false;//修复bug,未登录要返回false
 			}else {
 				response.sendRedirect("/accounts/signin?errorMsg="+msg);

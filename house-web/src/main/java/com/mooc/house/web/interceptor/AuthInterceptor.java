@@ -20,6 +20,14 @@ import com.mooc.house.common.model.User;
 @Component
 public class AuthInterceptor implements HandlerInterceptor{
 
+	/**
+	 * 在访问controller之前调用
+	 * @param request
+	 * @param response
+	 * @param handler
+	 * @return
+	 * @throws Exception
+	 */
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {

@@ -54,11 +54,11 @@
                                         <section id="contact">
                                             <h3>联系方式</h3>
                                             <dl class="contact-fields">
-                                                <dt><label for="form-account-name">Your Name:</label></dt>
+                                                <dt><label for="form-account-name">姓&nbsp;名:</label></dt>
                                                 <dd><div class="form-group">
                                                     <input type="text" class="form-control" id="form-account-name" name="name" required value="${(loginUser.name)!}">
                                                 </div><!-- /.form-group --></dd>
-                                                <dt><label for="form-account-phone">Phone:</label></dt>
+                                                <dt><label for="form-account-phone">手机号:</label></dt>
                                                 <dd><div class="form-group">
                                                     <input type="text" class="form-control" id="form-account-phone" name="phone" value="${(loginUser.phone)!}">
                                                 </div><!-- /.form-group --></dd>
@@ -70,7 +70,7 @@
                                             </dl>
                                         </section>
                                         <section id="about-me">
-                                            <h3>About Me</h3>
+                                            <h3>自我介绍</h3>
                                             <div class="form-group">
                                                 <textarea class="form-control" id="form-contact-agent-message" rows="5" name="aboutme">${(loginUser.aboutme)!}</textarea>
                                             </div><!-- /.form-group -->

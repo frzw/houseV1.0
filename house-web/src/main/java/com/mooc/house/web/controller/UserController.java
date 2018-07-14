@@ -114,6 +114,7 @@ public class UserController {
    */
   @RequestMapping("accounts/profile")
   public String profile(HttpServletRequest req, User updateUser, ModelMap model) {
+    //唯一索引，email为null表示查看个人信息
     if (updateUser.getEmail() == null) {
       return "/user/accounts/profile";
     }
@@ -138,6 +139,7 @@ public class UserController {
   @RequestMapping("accounts/changePassword")
   public String changePassword(String email, String password, String newPassword,
     String confirmPassword, ModelMap mode) {
+    //验证用户信息
     User user = userService.auth(email, password);
     if (user == null || !confirmPassword.equals(newPassword)) {
       return "redirct:/accounts/profile?" + ResultMsg.errorMsg("密码错误").asUrlParams();
@@ -164,7 +166,13 @@ public class UserController {
     modelMap.put("email", username);
     return "/user/accounts/remember";
   }
-  
+
+  /**
+   * 重置密码激活操作
+   * @param key
+   * @param modelMap
+   * @return
+   */
   @RequestMapping("accounts/reset")
   public String reset(String key,ModelMap modelMap){
     String email = userService.getResetEmail(key);
@@ -175,7 +183,13 @@ public class UserController {
     modelMap.put("success_key", key);
     return "/user/accounts/reset";
   }
-  
+
+  /**
+   * 确认密码提交
+   * @param req
+   * @param user
+   * @return
+   */
   @RequestMapping(value="accounts/resetSubmit")
   public String resetSubmit(HttpServletRequest req,User user){
     ResultMsg retMsg = UserHelper.validateResetPassword(user.getKey(), user.getPasswd(), user.getConfirmPasswd());

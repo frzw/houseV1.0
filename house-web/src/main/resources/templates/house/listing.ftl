@@ -49,7 +49,7 @@
                             <div class="property">
                                 <figure class="tag status">${house.typeStr}</figure>
                                 <div class="property-image">
-                                    <figure class="ribbon">In Hold</figure>
+                                    <figure class="ribbon">热榜</figure>
                                     <a href="/house/detail?id=${house.id}">
                                         <img alt="" src="${house.firstImg}" style="width: 260px;height: 195px" >
                                     </a>
@@ -67,17 +67,17 @@
                                         </p>
 
                                         <dl>
-                                            <dt>Status:</dt>
-                                                <dd>Sale</dd>
-                                            <dt>Area:</dt>
+                                            <dt>状态:</dt>
+                                                <dd>在售</dd>
+                                            <dt>面积:</dt>
                                                 <dd>${house.area} m<sup>2</sup></dd>
-                                            <dt>Beds:</dt>
+                                            <dt>卧室:</dt>
                                                 <dd>${house.beds}</dd>
-                                            <dt>Baths:</dt>
+                                            <dt>卫生间:</dt>
                                                 <dd>${house.baths}</dd>
                                         </dl>
                                     </aside>
-                                    <a href="/house/detail?id=${house.id}" class="link-arrow">Read More</a>
+                                    <a href="/house/detail?id=${house.id}" class="link-arrow">阅读更多</a>
                                 </div>
                             </div>
                         </#list>
