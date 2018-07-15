@@ -1,13 +1,22 @@
 package com.mooc.house.common.page;
 
+/**
+ * 分页参数，与MySql交互
+ */
 public class PageParams {
-	private static final Integer PAGE_SIZE = 5;
+	private static final Integer PAGE_SIZE = 5;//默认
 
 	private Integer pageSize;
 	private Integer pageNum;
 	private Integer offset;
 	private Integer limit;
-	
+
+	/**
+	 * 方法构建
+	 * @param pageSize
+	 * @param pageNum
+	 * @return
+	 */
 	public static PageParams build(Integer pageSize,Integer pageNum){
 		if (pageSize == null) {
 			pageSize = PAGE_SIZE;

@@ -11,23 +11,26 @@ import com.google.common.base.Splitter;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 
+/**
+ * 房产实体
+ */
 public class House {
 
   private Long id;
-  private Integer type;
-  private Integer price;
+  private Integer type;//1:销售，2:出租
+  private Integer price;//单位元
   private String  name;
   private String images;
   private Integer area;
   private Integer beds;
   private Integer baths;
-  private Double  rating;
+  private Double  rating;//评级
   
   private Integer roundRating = 0;
-  private String  remarks;
+  private String  remarks;//房产描述
   private String  properties;
-  private String  floorPlan;
-  private String  tags;
+  private String  floorPlan;//户型图
+  private String  tags;//标签
   private Date    createTime;
   private Integer cityId;
   private Integer    communityId;
@@ -51,11 +54,11 @@ public class House {
   private String typeStr;
   
   
-  private Long userId;
+  private Long userId;//用户id
   
-  private boolean bookmarked;
+  private boolean bookmarked;//收藏
   
-  private Integer state;
+  private Integer state;//'1-上架，2-下架'
   
   private List<Long> ids;
   
@@ -73,9 +76,9 @@ public class House {
   public void setType(Integer type) {
     this.type = type;
     if (Objects.equal(type, 1) && Objects.equal(type, 0)) {
-      this.typeStr = "For Sale";
+      this.typeStr = "销售";
     }else {
-      this.typeStr = "For Rent";
+      this.typeStr = "出租";
     }
   }
   public Integer getPrice() {

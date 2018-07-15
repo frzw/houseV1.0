@@ -22,6 +22,9 @@ import com.mooc.house.common.page.PageData;
 import com.mooc.house.common.page.PageParams;
 import com.mooc.house.common.utils.BeanHelper;
 
+/**
+ * 处理房产业务逻辑
+ */
 @Service
 public class HouseService {
 	

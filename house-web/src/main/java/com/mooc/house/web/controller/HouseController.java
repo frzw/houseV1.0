@@ -50,7 +50,7 @@ public class HouseController {
 	 * 1.实现分页
 	 * 2.支持小区搜索、类型搜索
 	 * 3.支持排序
-	 * 4.支持展示图片、价格、标题、地址等信息
+	 * 4.支持展示图片、价格、标题、地址等房产信息
 	 * @return
 	 */
 	@RequestMapping("/house/list")

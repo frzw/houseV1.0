@@ -13,7 +13,7 @@
          <setting name="defaultStatementTimeout" value="600"/>
     </settings>
     
-    
+    <!--设置别名-->
     <typeAliases>
        <typeAlias type="com.mooc.house.common.model.User" alias="user" />
         <typeAlias type="com.mooc.house.common.model.Agency"      alias="agency"/>

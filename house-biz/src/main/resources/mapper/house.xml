@@ -28,6 +28,7 @@
         inner join (select house_id,user_id from house_user 
                    <where>
                      user_id = #{house.userId}
+                     /*1：售卖或2:收藏*/
                      <if test="house.bookmarked != null and house.bookmarked == true">
                          and type = 2
                      </if>
@@ -79,7 +80,7 @@
         </otherwise>
      </choose>
      <if test ="pageParams.offset !=null and pageParams.limit != null">
-         limit #{pageParams.offset},#{pageParams.limit}        
+         limit #{pageParams.limit},#{pageParams.offset}
      </if>
      <if test="pageParams.offset == null and pageParams.limit != null">
          limit #{pageParams.limit}
@@ -91,7 +92,8 @@
      from house a
      <include refid="houseCondition"></include>
    </select>
-   
+
+   <!-- 查询小区-->
    <select id="selectCommunity" resultType="community">
      select * 
      from community
