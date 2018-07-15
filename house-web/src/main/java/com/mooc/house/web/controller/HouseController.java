@@ -62,7 +62,12 @@ public class HouseController {
 	  modelMap.put("vo", query);
 	  return "house/listing";
 	}
-	
+
+	/**
+	 * 进入新增页面
+	 * @param modelMap
+	 * @return
+	 */
 	@RequestMapping("/house/toAdd")
 	public String toAdd(ModelMap modelMap) {
 		modelMap.put("citys", cityService.getAllCitys());
