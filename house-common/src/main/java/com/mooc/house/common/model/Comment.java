@@ -2,6 +2,9 @@ package com.mooc.house.common.model;
 
 import java.util.Date;
 
+/**
+ * 用户评论信息
+ */
 public class Comment {
   
   private Long id;
