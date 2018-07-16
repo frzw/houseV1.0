@@ -1,5 +1,8 @@
 package com.mooc.house.common.model;
 
+/**
+ * 经纪机构信息
+ */
 public class Agency {
  
   private Integer id;

@@ -30,6 +30,7 @@ public class AgencyService {
   public User getAgentDeail(Long userId) {
     User user = new User();
     user.setId(userId);
+    //经纪人
     user.setType(2);
     List<User> list = agencyMapper.selectAgent(user, PageParams.build(1, 1));
     setImg(list);
@@ -47,6 +48,10 @@ public class AgencyService {
     return null;
   }
 
+  /**
+   * 设置用户头像
+   * @param list
+   */
   private void setImg(List<User> list) {
     list.forEach(i -> {
       i.setAvatar(imgPrefix + i.getAvatar());

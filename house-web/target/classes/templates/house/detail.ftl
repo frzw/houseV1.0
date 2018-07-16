@@ -34,7 +34,7 @@
                                 <!--<a href="#" class="fa fa-print"></a>-->
                                 <a href="#" class="bookmark" data-bookmark-state="empty"
  
-                                ><span class="title-add">Add to bookmark</span><span class="title-added">Added</span></a>
+                                ><span class="title-add">添加收藏</span><span class="title-added">添加</span></a>
                             </span>
                        </#if>
                         </header>
@@ -138,7 +138,7 @@
                                                         <dl>
                                                             <dt>手机:</dt>
                                                             <dd>${(agent.phone)!}</dd>
-                                                            <dt>Email:</dt>
+                                                            <dt>邮箱:</dt>
                                                             <dd><a href="mailto:#">${(agent.email)!}</a></dd>
                                                             <dt>&nbsp;&nbsp;&nbsp;</dt>
                                                             <dd>&nbsp;&nbsp;&nbsp;</dd>
@@ -165,7 +165,7 @@
                                                             <textarea class="form-control" id="form-contact-agent-message" rows="2" name="msg" required></textarea>
                                                         </div><!-- /.form-group -->
                                                         <div class="form-group">
-                                                            <button type="submit" class="btn pull-right btn-default" id="form-contact-agent-submit">Send a Message</button>
+                                                            <button type="submit" class="btn pull-right btn-default" id="form-contact-agent-submit">发送留言</button>
                                                         </div><!-- /.form-group -->
                                                         <div id="form-contact-agent-status"></div>
                                                     </form><!-- /#form-contact -->
@@ -191,7 +191,7 @@
                                                         <div id="form-contact-agent-status"></div>
                                                     </form><!-- /#form-contact -->
                                                 </div>
-                                    <header><h2 class="no-border">Comments</h2></header>
+                                    <header><h2 class="no-border">评论列表</h2></header>
                                     <ul class="comments">
                                       <#list commentList as comment> 
                                         <li class="comment" style="width: 830px;">

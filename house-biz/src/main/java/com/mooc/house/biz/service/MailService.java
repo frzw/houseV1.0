@@ -61,7 +61,7 @@ public class MailService {
     return "<!DOCTYPE html>"
             + "<html>"
             + "<head>"
-            + "<title>激活邮件</title>"
+            + "<title>邮件确认</title>"
             + "<meta name=\"content-type\" content=\"text/html; charset=UTF-8\">"
             + "</head>"
             + "<body>"

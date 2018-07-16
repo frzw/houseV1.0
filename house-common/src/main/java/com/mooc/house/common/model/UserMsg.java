@@ -2,13 +2,16 @@ package com.mooc.house.common.model;
 
 import java.util.Date;
 
+/**
+ * 用户留言
+ */
 public class UserMsg {
 
 	private Long id;
 	private String msg;
 	private Long  userId;
 	private Date  createTime;
-	private Long  agentId;
+	private Long  agentId;//经纪人Id
 	private Long  houseId;
 	private String email;
 	

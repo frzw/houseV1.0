@@ -1,16 +1,15 @@
 package com.mooc.house.biz.service;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.mooc.house.biz.mapper.CommentMapper;
 import com.mooc.house.common.constants.CommonConstants;
 import com.mooc.house.common.model.Comment;
 import com.mooc.house.common.model.User;
 import com.mooc.house.common.utils.BeanHelper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 public class CommentService {
@@ -26,7 +25,7 @@ public class CommentService {
   }
 
   @Transactional(rollbackFor=Exception.class)
-  private void addComment(Long houseId,Integer blogId, String content, Long userId,int type) {
+  public void addComment(Long houseId,Integer blogId, String content, Long userId,int type) {
     Comment comment = new Comment();
     if (type == 1) {
       comment.setHouseId(houseId);

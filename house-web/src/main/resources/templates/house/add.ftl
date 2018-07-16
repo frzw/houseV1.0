@@ -132,8 +132,8 @@
                                     <header><h2>房屋图片</h2></header>
                                     <div class="center">
                                         <div class="form-group">
-                                            <input id="file-upload" type="file" class="file" multiple="true" data-show-upload="false" data-show-caption="false" data-show-remove="false" accept="image/jpeg,image/png" data-browse-class="btn btn-default" data-browse-label="Browse Images" name="houseFiles">
-                                            <figure class="note"><strong>Hint:</strong> You can upload all images at once!</figure>
+                                            <input id="file-upload" type="file" class="file" multiple="true" data-show-upload="false" data-show-caption="false" data-show-remove="false" accept="image/jpeg,image/png" data-browse-class="btn btn-default" data-browse-label="浏览图片" name="houseFiles">
+                                            <figure class="note"><strong>提示信息:</strong> 您可以一次上传多张图片!</figure>
                                         </div>
                                     </div>
                                 </section>
@@ -142,8 +142,8 @@
                                     <header><h2>户型图片</h2></header>
                                     <div class="center">
                                         <div class="form-group">
-                                            <input id="file-upload" type="file" class="file" multiple="true" data-show-upload="false" data-show-caption="false" data-show-remove="false" accept="image/jpeg,image/png" data-browse-class="btn btn-default" data-browse-label="Browse Images" name="floorPlanFiles">
-                                            <figure class="note"><strong>Hint:</strong> You can upload all images at once!</figure>
+                                            <input id="file-upload" type="file" class="file" multiple="true" data-show-upload="false" data-show-caption="false" data-show-remove="false" accept="image/jpeg,image/png" data-browse-class="btn btn-default" data-browse-label="浏览图片" name="floorPlanFiles">
+                                            <figure class="note"><strong>提示信息:</strong>  您可以一次上传多张图片!</figure>
                                         </div>
                                     </div>
                                 </section> 
@@ -180,8 +180,8 @@
                             <aside class="submit-step">
                                 <figure class="step-number">2</figure>
                                 <div class="description">
-                                    <h4>Enter Information About Property</h4>
-                                    <p>Type information about your property. Be descriptive.
+                                    <h4>输入有关属性的信息</h4>
+                                    <p>输入有关描述性的属性信息.
                                     </p>
                                 </div>
                             </aside><!-- /.submit-step -->

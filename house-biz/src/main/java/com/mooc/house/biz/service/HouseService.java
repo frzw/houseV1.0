@@ -66,6 +66,12 @@ public class HouseService {
 		return PageData.buildPage(houses, count, pageParams.getPageSize(), pageParams.getPageNum());
 	}
 
+	/**
+	 *  设置图片信息，获取图片服务器前缀信息
+	 * @param query
+	 * @param pageParams
+	 * @return
+	 */
 	public List<House> queryAndSetImg(House query, PageParams pageParams) {
 		List<House> houses =   houseMapper.selectPageHouses(query, pageParams);
 		houses.forEach(h ->{
@@ -75,7 +81,11 @@ public class HouseService {
 		});
 		return houses;
 	}
-	
+
+	/**
+	 * 查询所有小区
+	 * @return
+	 */
 	public List<Community> getAllCommunitys() {
 		Community community = new Community();
 		return houseMapper.selectCommunity(community);
@@ -90,10 +100,12 @@ public class HouseService {
 	 * @param user
 	 */
 	public void addHouse(House house, User user) {
+		//房产图片
 		if (CollectionUtils.isNotEmpty(house.getHouseFiles())) {
 			String images = Joiner.on(",").join(fileService.getImgPaths(house.getHouseFiles()));
 		    house.setImages(images);
 		}
+		//户型图片
 		if (CollectionUtils.isNotEmpty(house.getFloorPlanFiles())) {
 			String images = Joiner.on(",").join(fileService.getImgPaths(house.getFloorPlanFiles()));
 		    house.setFloorPlan(images);
@@ -103,8 +115,15 @@ public class HouseService {
 		bindUser2House(house.getId(),user.getId(),false);
 	}
 
+	/**
+	 * 用户与房产信息绑定
+	 * @param houseId
+	 * @param userId
+	 * @param collect
+	 */
 	public void bindUser2House(Long houseId, Long userId, boolean collect) {
-      HouseUser existhouseUser =     houseMapper.selectHouseUser(userId,houseId,collect ? HouseUserType.BOOKMARK.value : HouseUserType.SALE.value);
+        //售卖
+		HouseUser existhouseUser =     houseMapper.selectHouseUser(userId,houseId,collect ? HouseUserType.BOOKMARK.value : HouseUserType.SALE.value);
 	  if (existhouseUser != null) {
 		  return;
 	  }
@@ -117,11 +136,21 @@ public class HouseService {
 	  houseMapper.insertHouseUser(houseUser);
 	}
 
+	/**
+	 * 查询在售的房产用户信息
+	 * @param houseId
+	 * @return
+	 */
 	public HouseUser getHouseUser(Long houseId){
 		HouseUser houseUser =  houseMapper.selectSaleHouseUser(houseId);
 		return houseUser;
 	}
-	
+
+	/**
+	 * 根据id查询房产信息
+	 * @param id
+	 * @return
+	 */
 	public House queryOneHouse(Long id) {
 		House query = new House();
 		query.setId(id);
@@ -132,9 +161,14 @@ public class HouseService {
 		return null;
 	}
 
+	/**
+	 * 添加用户留言信息
+	 * @param userMsg
+	 */
 	public void addUserMsg(UserMsg userMsg) {
         BeanHelper.onInsert(userMsg);
         houseMapper.insertUserMsg(userMsg);
+        //经纪人信息，此处的userMsg.getAgentId()是经纪人Id
         User agent = agencyService.getAgentDeail(userMsg.getAgentId());
         mailService.sendMail("来自用户"+userMsg.getEmail()+"的留言", userMsg.getMsg(), agent.getEmail());
 	}
@@ -150,6 +184,12 @@ public class HouseService {
 		houseMapper.updateHouse(updateHouse);
 	}
 
+	/**
+	 * 解除我与房产的绑定关系
+	 * @param id
+	 * @param userId
+	 * @param type
+	 */
 	public void unbindUser2House(Long id, Long userId, HouseUserType type) {
 	  if (type.equals(HouseUserType.SALE)) {
 	      houseMapper.downHouse(id);

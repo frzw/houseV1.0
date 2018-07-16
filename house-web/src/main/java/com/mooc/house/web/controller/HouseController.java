@@ -74,15 +74,28 @@ public class HouseController {
 		modelMap.put("communitys", houseService.getAllCommunitys());
 		return "/house/add";
 	}
-	
+
+	/**
+	 * 新增房产信息
+	 * @param house
+	 * @return
+	 */
 	@RequestMapping("/house/add")
 	public String doAdd(House house){
 		User user = UserContext.getUser();
-		house.setState(CommonConstants.HOUSE_STATE_UP);
+		house.setState(CommonConstants.HOUSE_STATE_UP);//1:上架；2：下架
 		houseService.addHouse(house,user);
 		return "redirect:/house/ownlist";
 	}
-	
+
+	/**
+	 * 房产列表
+	 * @param house
+	 * @param pageNum
+	 * @param pageSize
+	 * @param modelMap
+	 * @return
+	 */
 	@RequestMapping("house/ownlist")
 	public String ownlist(House house,Integer pageNum,Integer pageSize,ModelMap modelMap){
 		User user = UserContext.getUser();
@@ -96,12 +109,13 @@ public class HouseController {
 	/**
 	 * 查询房屋详情
 	 * 查询关联经纪人
-	 * @param id
+	 * @param id 房产Id
 	 * @return
 	 */
 	@RequestMapping("house/detail")
 	public String houseDetail(Long id,ModelMap modelMap){
 		House house = houseService.queryOneHouse(id);
+		//房产用户关系
 	    HouseUser houseUser = houseService.getHouseUser(id);
 	    recommendService.increase(id);
 	    List<Comment> comments = commentService.getHouseComments(id,8);
@@ -111,10 +125,15 @@ public class HouseController {
 	    List<House> rcHouses =  recommendService.getHotHouse(CommonConstants.RECOM_SIZE);
 	    modelMap.put("recomHouses", rcHouses);
 		modelMap.put("house", house);
-		 modelMap.put("commentList", comments);
+		modelMap.put("commentList", comments);
 		return "/house/detail";
 	}
-	
+
+	/**
+	 * 留言
+	 * @param userMsg
+	 * @return
+	 */
 	@RequestMapping("house/leaveMsg")
 	public String houseMsg(UserMsg userMsg){
 	  houseService.addUserMsg(userMsg);
@@ -147,7 +166,13 @@ public class HouseController {
 	  houseService.unbindUser2House(id,user.getId(),HouseUserType.BOOKMARK);
 	  return ResultMsg.successMsg("ok");
 	}
-	
+
+	/**
+	 * 删除我的房产信息
+	 * @param id
+	 * @param pageType
+	 * @return
+	 */
 	@RequestMapping(value="house/del")
 	public String delsale(Long id,String pageType){
 	   User user = UserContext.getUser();
