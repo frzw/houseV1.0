@@ -1,21 +1,22 @@
 package com.mooc.house.biz.service;
 
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.google.common.collect.Lists;
 import com.google.common.collect.Ordering;
 import com.mooc.house.common.model.House;
 import com.mooc.house.common.page.PageParams;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import redis.clients.jedis.Jedis;
 
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+/**
+ * 热榜服务层，使用Jedis缓存进行处理
+ */
 @Service
 public class RecommendService {
 
@@ -26,10 +27,17 @@ public class RecommendService {
   @Autowired
   private HouseService houseService;
 
+  /**
+   * 计时器
+   * @param id
+   */
   public void increase(Long id) {
     try {
-      Jedis jedis = new Jedis("127.0.0.1");
+      //连接Redis服务
+      Jedis jedis = new Jedis("127.0.0.1",6379);
+      //Set
       jedis.zincrby(HOT_HOUSE_KEY, 1.0D, id + "");
+      //移除
       jedis.zremrangeByRank(HOT_HOUSE_KEY, 0, -11);// 0代表第一个元素,-1代表最后一个元素，保留热度由低到高末尾10个房产
       jedis.close();
     } catch (Exception e) {
@@ -40,7 +48,7 @@ public class RecommendService {
 
   public List<Long> getHot() {
     try {
-      Jedis jedis = new Jedis("127.0.0.1");
+      Jedis jedis = new Jedis("127.0.0.1",6379);
       Set<String> idSet = jedis.zrevrange(HOT_HOUSE_KEY, 0, -1);
       jedis.close();
       List<Long> ids = idSet.stream().map(Long::parseLong).collect(Collectors.toList());

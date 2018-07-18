@@ -44,8 +44,14 @@ public class AgencyController {
     }
     return "/user/agency/create";
   }
-  
-  
+
+    /**
+     * 获取经纪人列表
+     * @param pageSize
+     * @param pageNum
+     * @param modelMap
+     * @return
+     */
   @RequestMapping("/agency/agentList")
   public String agentList(Integer pageSize,Integer pageNum,ModelMap modelMap){
     if (pageSize == null) {
