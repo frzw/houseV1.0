@@ -46,6 +46,10 @@ public class RecommendService {
    
   }
 
+  /**
+   * 获取热榜ids
+   * @return
+   */
   public List<Long> getHot() {
     try {
       Jedis jedis = new Jedis("127.0.0.1",6379);
