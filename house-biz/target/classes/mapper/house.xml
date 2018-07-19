@@ -41,7 +41,7 @@
     </if>
     <where>
         <!-- 这里要注意只显示上架的房产 -->
-        state = 1
+        a.state = 1
        <if test="house.id !=null and house.id !=0">
           and a.id = #{house.id}
        </if>

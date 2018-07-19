@@ -119,11 +119,11 @@ public class HouseService {
 	 * 用户与房产信息绑定
 	 * @param houseId
 	 * @param userId
-	 * @param collect
+	 * @param collect 是否收藏
 	 */
 	public void bindUser2House(Long houseId, Long userId, boolean collect) {
         //售卖
-		HouseUser existhouseUser =     houseMapper.selectHouseUser(userId,houseId,collect ? HouseUserType.BOOKMARK.value : HouseUserType.SALE.value);
+		HouseUser existhouseUser =  houseMapper.selectHouseUser(userId,houseId,collect ? HouseUserType.BOOKMARK.value : HouseUserType.SALE.value);
 	  if (existhouseUser != null) {
 		  return;
 	  }

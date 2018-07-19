@@ -63,12 +63,19 @@ public class AgencyController {
     modelMap.put("ps", ps);
     return "/user/agent/agentList";
   }
-  
+
+    /**
+     * 经纪人详情
+     * @param id
+     * @param modelMap
+     * @return
+     */
   @RequestMapping("/agency/agentDetail")
   public String agentDetail(Long id,ModelMap modelMap){
       User user =  agencyService.getAgentDeail(id);
       List<House> houses =  recommendService.getHotHouse(CommonConstants.RECOM_SIZE);
       House query = new House();
+      //对应经纪人userId
       query.setUserId(id);
       query.setBookmarked(false);
       PageData<House> bindHouse = houseService.queryHouse(query, new PageParams(3,1));

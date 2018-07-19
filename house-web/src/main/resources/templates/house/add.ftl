@@ -33,7 +33,7 @@
                                         <div class="col-md-8">
                                             <div class="form-group">
                                                 <label for="submit-title">标题</label>
-                                                <input type="text" class="form-control" id="submit-title" name="name" required>
+                                                <input type="text" class="form-control" id="submit-title" name="name" required placeholder="标题前缀必须以小区名开头">
                                             </div><!-- /.form-group -->
                                         </div>
                                         <div class="col-md-4">

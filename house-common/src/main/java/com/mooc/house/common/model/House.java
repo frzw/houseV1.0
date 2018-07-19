@@ -54,7 +54,7 @@ public class House {
   private String typeStr;
   
   
-  private Long userId;//经纪人用户id
+  private Long userId;//用户id
   
   private boolean bookmarked;//是否收藏
   
