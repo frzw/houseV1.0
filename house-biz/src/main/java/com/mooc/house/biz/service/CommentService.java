@@ -40,6 +40,12 @@ public class CommentService {
     commentMapper.insert(comment);
   }
 
+  /**
+   * 获取对房产的评论信息
+   * @param houseId
+   * @param size
+   * @return
+   */
   public List<Comment> getHouseComments(long houseId,int size) {
     List<Comment> comments = commentMapper.selectComments(houseId,size);
     comments.forEach(comment -> {

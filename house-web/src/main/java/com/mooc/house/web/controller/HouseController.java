@@ -56,6 +56,7 @@ public class HouseController {
 	@RequestMapping("/house/list")
 	public String houseList(Integer pageSize,Integer pageNum,House query,ModelMap modelMap){
 	  PageData<House> ps =  houseService.queryHouse(query,PageParams.build(pageSize, pageNum));
+	  //推荐房产
 	  List<House> hotHouses =  recommendService.getHotHouse(CommonConstants.RECOM_SIZE);
 	  modelMap.put("recomHouses", hotHouses);
 	  modelMap.put("ps", ps);
@@ -89,7 +90,7 @@ public class HouseController {
 	}
 
 	/**
-	 * 房产列表
+	 * 房产列表(个人)
 	 * @param house
 	 * @param pageNum
 	 * @param pageSize
@@ -117,6 +118,7 @@ public class HouseController {
 		House house = houseService.queryOneHouse(id);
 		//房产用户关系
 	    HouseUser houseUser = houseService.getHouseUser(id);
+	    //计时器，得分+1
 	    recommendService.increase(id);
 	    List<Comment> comments = commentService.getHouseComments(id,8);
 		if (houseUser.getUserId() != null && !houseUser.getUserId().equals(0)) {

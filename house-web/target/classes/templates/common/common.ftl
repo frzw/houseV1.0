@@ -49,7 +49,7 @@
                                     奋斗大厦B座3层
                                 </address>
                                 010-87111111<br>
-                                <a href="#">hello@example.com</a>
+                                <a href="#">bjxzm@example.com</a>
                             </article>
                         </div><!-- /.col-sm-3 -->
                         <div class="col-md-3 col-sm-3">
@@ -137,7 +137,7 @@
     <form role="form" id="_searchForm" class="form-search" method="post" action="/house/list">
 
         <div class="form-group">
-            <input type="text" class="form-control" id="search-box-property-id" value="${(vo.name)!}" name="name" placeholder="尝试输入小区名">
+            <input type="text" class="form-control" id="search-box-property-id" value="${(vo.name)!}" name="name" placeholder="尝试输入小区名称">
         </div>
         <div class="form-group">
             <select name="type">

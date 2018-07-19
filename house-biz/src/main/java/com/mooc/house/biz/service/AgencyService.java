@@ -59,6 +59,11 @@ public class AgencyService {
 
   }
 
+  /**
+   * 获取所有经纪人信息
+   * @param pageParams
+   * @return
+   */
   public PageData<User> getAllAgent(PageParams pageParams) {
     List<User> agents = agencyMapper.selectAgent(new User(), pageParams);
     setImg(agents);
