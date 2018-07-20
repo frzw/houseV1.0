@@ -54,7 +54,7 @@
 		http://localhost:8091/env 环境监控
 		http://localhost:8091/mappings url路径监控
 
-		http://localhost:8091/metrics
+		http://localhost:8091/metrics 指标监控
 		http://localhost:8091/trace 访问轨迹
 	  -->
 	 <dependency>
