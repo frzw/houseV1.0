@@ -173,6 +173,11 @@ public class HouseService {
         mailService.sendMail("来自用户"+userMsg.getEmail()+"的留言", userMsg.getMsg(), agent.getEmail());
 	}
 
+	/**
+	 * 修改评分
+	 * @param id
+	 * @param rating
+	 */
 	public void updateRating(Long id, Double rating) {
 		House house = queryOneHouse(id);
 		Double oldRating = house.getRating();
@@ -192,8 +197,10 @@ public class HouseService {
 	 */
 	public void unbindUser2House(Long id, Long userId, HouseUserType type) {
 	  if (type.equals(HouseUserType.SALE)) {
-	      houseMapper.downHouse(id);
+	     //下架
+	       houseMapper.downHouse(id);
 	    }else {
+	  	//删除收藏
 	      houseMapper.deleteHouseUser(id, userId, type.value);
 	    }
 	    

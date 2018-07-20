@@ -26,7 +26,7 @@
             <!-- sidebar -->
             <div class="col-md-3 col-sm-2">
                 <section id="sidebar">
-                    <header><h3>Account</h3></header>
+                    <header><h3>个人账户信息</h3></header>
                     <aside>
                         <ul class="sidebar-navigation">
                             <li><a href="/accounts/profile"><i class="fa fa-user"></i><span>个人信息</span></a></li>

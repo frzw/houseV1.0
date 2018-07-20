@@ -43,12 +43,26 @@
 		<artifactId>spring-boot-starter-test</artifactId>
 		<scope>test</scope>
 	 </dependency>
-	 
+
+	  <!--安全监测，可以获取程序内部的URL等相关信息-->
+	  <!--
+		http://localhost:8091/health 安全监控
+		http://localhost:8091/beans 所有的javaBean的监控
+		http://localhost:8091/autoconfig spring的自动配置监控
+		http://localhost:8091/dump 线程监控
+		http://localhost:8091/configprops 属性监控
+		http://localhost:8091/env 环境监控
+		http://localhost:8091/mappings url路径监控
+
+		http://localhost:8091/metrics
+		http://localhost:8091/trace 访问轨迹
+	  -->
 	 <dependency>
 	    <groupId>org.springframework.boot</groupId>
 	    <artifactId>spring-boot-starter-actuator</artifactId>
      </dependency>
-     
+
+      <!--监控平台客户端-->
       <dependency>
         <groupId>de.codecentric</groupId>
         <artifactId>spring-boot-admin-starter-client</artifactId>
@@ -94,11 +108,14 @@
 		    <plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<!--配置主函数入口-->
 				<configuration>
 					<mainClass>com.mooc.house.HouseApplication</mainClass>
+					<!--打包方式3种：ZIP，JAR，WAR-->
 					<layout>ZIP</layout>
 				</configuration>
 				<executions>
+					<!--执行方式-->
 					<execution>
 						<goals>
 							<goal>repackage</goal>

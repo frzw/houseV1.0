@@ -142,7 +142,7 @@ public class HouseController {
 	  return "redirect:/house/detail?id=" + userMsg.getHouseId() + ResultMsg.successMsg("留言成功").asUrlParams();
 	}
 	
-	//1.评分
+	//1.评分，使用ajax请求，无需页面加载，只需前后台交互处理
 	@ResponseBody
 	@RequestMapping("house/rating")
 	public ResultMsg houseRate(Double rating,Long id){
